@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "eyebrow": "Virtual Valley Partner Network",
+    "title": "Grow by bringing ambitious brands into the valley.",
+    "description": "Join Virtual Valley as a Growth Partner and earn commissions for every successful client referral across website development, website repair, and social media management."
+  },
+  "opportunityPoints": [
+    "Earn on every successful referral without handling delivery yourself.",
+    "Recommend trusted services to founders, creators, and local businesses.",
+    "Work remotely from any city while building recurring monthly income.",
+    "Get priority support from the Virtual Valley team when leads are active."
+  ],
+  "commissionTiers": [
+    {
+      "label": "Starter Partner",
+      "rate": "10%",
+      "description": "For partners getting started with occasional referrals."
+    },
+    {
+      "label": "Growth Partner",
+      "rate": "15%",
+      "description": "For partners who consistently refer qualified leads."
+    },
+    {
+      "label": "Elite Partner",
+      "rate": "20%",
+      "description": "For high-performing partners with repeat monthly conversions."
+    }
+  ],
+  "highlightMessages": [
+    "High commissions",
+    "Fast onboarding",
+    "Remote-friendly",
+    "Transparent payouts",
+    "Dedicated support",
+    "Website + social services"
+  ],
+  "rules": [
+    "Commission is released after the client completes the first approved payment milestone.",
+    "Duplicate leads are assigned to the earliest verified submission.",
+    "Misleading claims, spam outreach, or fake leads result in immediate removal.",
+    "Partners must represent pricing and timelines responsibly.",
+    "Virtual Valley may update program terms and payout rules with notice."
+  ],
+  "programs": [
+    {
+      "name": "Campus Connect",
+      "summary": "For students and campus creators who refer startups, creators, and local businesses."
+    },
+    {
+      "name": "Agency Ally",
+      "summary": "For freelancers, consultants, and boutique studios who want a reliable execution partner."
+    },
+    {
+      "name": "Community Builder",
+      "summary": "For creators and community operators with strong trust-based distribution."
+    }
+  ]
+}

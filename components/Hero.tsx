@@ -1,0 +1,127 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+export default function Hero() {
+  const [count, setCount] = useState(0);
+  const [hasVideoError, setHasVideoError] = useState(false);
+
+  useEffect(() => {
+    let animationFrame = 0;
+    const start = performance.now();
+    const duration = 2000;
+    const target = 50;
+
+    const tick = (timestamp: number) => {
+      const progress = Math.min((timestamp - start) / duration, 1);
+      setCount(Math.round(progress * target));
+      if (progress < 1) {
+        animationFrame = window.requestAnimationFrame(tick);
+      }
+    };
+
+    animationFrame = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, []);
+
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-neutral-950 to-black pt-28">
+      <div className="animated-grid absolute inset-0 opacity-80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(201,168,76,0.08),transparent_18%)]" />
+
+      <div className="section-shell relative flex min-h-[calc(100vh-7rem)] flex-col items-center justify-center py-16 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 font-display text-lg font-semibold uppercase tracking-[0.45em] text-gray-300 md:text-2xl"
+        >
+          we build
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="flex flex-col items-center gap-5 lg:flex-row lg:gap-8"
+        >
+          <span className="group cursor-default font-display text-4xl font-extrabold tracking-[-0.06em] text-white transition-all duration-300 md:text-6xl lg:text-8xl">
+            <span className="inline-block transition-all duration-300 group-hover:text-gold-gradient">
+              VIRTUAL
+            </span>
+          </span>
+
+          {hasVideoError ? (
+            <div className="flex h-24 w-24 items-center justify-center rounded-full border border-gold/30 bg-white/5 font-display text-xl font-bold tracking-[0.3em] text-white shadow-glow-gold md:h-32 md:w-32 lg:h-40 lg:w-40">
+              VV
+            </div>
+          ) : (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              onError={() => setHasVideoError(true)}
+              className="h-16 w-auto object-contain md:h-32 lg:h-40"
+              style={{ mixBlendMode: "screen" }}
+            >
+              <source src="/logovid.webm" type="video/webm" />
+            </video>
+          )}
+
+          <span className="font-display text-4xl font-extrabold tracking-[-0.06em] text-white md:text-6xl lg:text-8xl">
+            VALLEY
+          </span>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-6 font-display text-lg font-semibold uppercase tracking-[0.45em] text-gray-300 md:text-2xl"
+        >
+          you dominate
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.35 }}
+          className="pulse-card mt-12 w-full max-w-md rounded-2xl border border-white/20 bg-neutral-900/80 p-6 backdrop-blur-sm"
+        >
+          <p className="text-xs uppercase tracking-[0.35em] text-gray-400">
+            Client momentum
+          </p>
+          <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
+            Celebrating <span className="text-white">{count}+</span> Customers
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-gray-400">
+            Trusted by founders, local businesses, and growth-minded teams who want a stronger digital presence across India.
+          </p>
+          <Link href="/growth-partner" className="btn-secondary mt-6 gap-2">
+            Become a Growth Partner
+            <ArrowRight size={16} />
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 flex flex-col gap-4 sm:flex-row"
+        >
+          <a href="#pricing" className="btn-primary">
+            View Packages
+          </a>
+          <a href="#portfolio" className="btn-secondary">
+            Recent Projects
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

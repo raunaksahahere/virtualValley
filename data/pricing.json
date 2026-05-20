@@ -1,0 +1,170 @@
+{
+  "websiteBuild": [
+    {
+      "name": "Starter Launch",
+      "price": "10k-20k",
+      "popular": false,
+      "features": [
+        "1-3 pages responsive website",
+        "Mobile-friendly design",
+        "Contact form integration",
+        "Basic SEO setup",
+        "Social media links integration",
+        "Fast loading optimisation",
+        "WhatsApp integration"
+      ]
+    },
+    {
+      "name": "Growth Build",
+      "price": "21k-35k",
+      "popular": false,
+      "features": [
+        "1-5 pages responsive website",
+        "Modern UI/UX design",
+        "CMS integration",
+        "Advanced contact forms",
+        "Social media integrations",
+        "Basic performance optimisation",
+        "SEO optimisation",
+        "Speed optimisation"
+      ]
+    },
+    {
+      "name": "Professional Build",
+      "price": "36k-65k",
+      "popular": true,
+      "features": [
+        "1-12 pages responsive website",
+        "Advanced SEO optimisation",
+        "CMS integration",
+        "E-commerce functionality",
+        "Database integration",
+        "RBAC/User authentication",
+        "Performance optimisation",
+        "API integrations",
+        "Social media integrations"
+      ]
+    },
+    {
+      "name": "Business Pro",
+      "price": "66k-90k",
+      "popular": false,
+      "features": [
+        "Custom website design",
+        "Advanced CMS setup",
+        "API integrations",
+        "Dedicated support",
+        "Security optimisation",
+        "Advanced SEO optimisation",
+        "Database integration",
+        "E-commerce functionality",
+        "Admin dashboard",
+        "Performance optimisation"
+      ]
+    },
+    {
+      "name": "Enterprise Build",
+      "price": "90k+",
+      "popular": false,
+      "features": [
+        "Fully custom scalable solution",
+        "Enterprise-grade architecture",
+        "Advanced security & maintenance",
+        "Automation integrations",
+        "Custom dashboards",
+        "High-performance optimisation",
+        "Multi-user RBAC system",
+        "Advanced database infrastructure",
+        "Premium dedicated support",
+        "Future scalability support"
+      ]
+    }
+  ],
+  "websiteRepair": [
+    {
+      "name": "Basic Repair",
+      "price": "5k-20k",
+      "popular": true,
+      "features": [
+        "Bug fixes and troubleshooting",
+        "Security updates",
+        "Performance optimization",
+        "Content updates",
+        "Basic SEO fixes",
+        "1 month support"
+      ]
+    },
+    {
+      "name": "Advanced Repair",
+      "price": "20k-50k",
+      "popular": false,
+      "features": [
+        "Complete website audit",
+        "Security overhaul",
+        "Speed optimization",
+        "SEO enhancement",
+        "Content management setup",
+        "2 months support"
+      ]
+    },
+    {
+      "name": "Premium Repair",
+      "price": "50k-70k",
+      "popular": false,
+      "features": [
+        "Full website redesign",
+        "Advanced security implementation",
+        "Performance tuning",
+        "Complete SEO overhaul",
+        "Advanced CMS setup",
+        "6 months support"
+      ]
+    }
+  ],
+  "socialMedia": [
+    {
+      "name": "Basic Plan",
+      "weekly": 2100,
+      "monthly": 4200,
+      "popular": false,
+      "features": [
+        "1 platform management",
+        "2 Long Video + 2 Short Video / 4 Shorts",
+        "Image Post on Request",
+        "Basic content creation",
+        "28 Days analytics report"
+      ]
+    },
+    {
+      "name": "Professional Plan",
+      "weekly": 3500,
+      "monthly": 7000,
+      "popular": true,
+      "features": [
+        "1 platform management",
+        "2-5 Long Video + 2-10 Short Video / 5-10 Shorts",
+        "Image Post on Request + 2 Posts weekly",
+        "Premium content creation",
+        "Real-time analytics",
+        "Paid ad management",
+        "28 Days analytics report"
+      ]
+    },
+    {
+      "name": "Enterprise Plan",
+      "weekly": 5000,
+      "monthly": 10000,
+      "popular": false,
+      "features": [
+        "1 platform management",
+        "5-14 Long Video + 5-30 Short Video / 10-30 Shorts",
+        "Image Post on Request + 7 Posts weekly",
+        "Premium content creation",
+        "Real-time analytics",
+        "Paid ad management",
+        "Strategy consulting",
+        "28 Days analytics report"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e5c76b;
+  --color-gold-dark: #a07830;
+  --color-gray-950: #0a0a0a;
+  --color-gray-900: #171717;
+  --color-gray-800: #262626;
+  --color-gray-700: #404040;
+  --color-gray-600: #525252;
+  --color-gray-500: #737373;
+  --color-gray-400: #a3a3a3;
+  --color-gray-300: #d4d4d4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black text-white font-body antialiased;
+}
+
+a,
+button,
+input,
+textarea {
+  @apply transition-all duration-300;
+}
+
+::selection {
+  @apply bg-white text-black;
+}
+
+.text-gold-gradient {
+  @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
+}
+
+.border-gold-subtle {
+  @apply border border-gold/20;
+}
+
+.hover-gold-ring {
+  @apply hover:ring-1 hover:ring-gold/30 transition-all duration-300;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-4 md:px-6;
+}
+
+.section-copy {
+  @apply max-w-2xl text-sm leading-7 text-gray-400 md:text-base;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full border border-white bg-white px-6 py-3 text-sm font-semibold text-black hover:-translate-y-0.5 hover:bg-transparent hover:text-white;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:border-white/40 hover:bg-white/10;
+}
+
+.animated-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.pulse-card {
+  animation: cardPulse 3s ease-in-out infinite;
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes cardPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(255, 255, 255, 0.16);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

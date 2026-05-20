@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "Aurora Commerce",
+    "type": "Retail Technology",
+    "serviceType": "website",
+    "image": "/og-image.png",
+    "projectLink": ""
+  },
+  {
+    "id": "2",
+    "name": "House of Kineto",
+    "type": "Creative Production Studio",
+    "serviceType": "social",
+    "image": "/og-image.png",
+    "projectLink": ""
+  },
+  {
+    "id": "3",
+    "name": "Medisphere Care",
+    "type": "Healthcare Brand",
+    "serviceType": "website",
+    "image": "/og-image.png",
+    "projectLink": ""
+  },
+  {
+    "id": "4",
+    "name": "Bengal Dine",
+    "type": "Hospitality Group",
+    "serviceType": "social",
+    "image": "/og-image.png",
+    "projectLink": ""
+  },
+  {
+    "id": "5",
+    "name": "Ledger Nest",
+    "type": "Finance Startup",
+    "serviceType": "website",
+    "image": "/og-image.png",
+    "projectLink": ""
+  },
+  {
+    "id": "6",
+    "name": "Threadline India",
+    "type": "Fashion Label",
+    "serviceType": "social",
+    "image": "/og-image.png",
+    "projectLink": ""
+  }
+]
