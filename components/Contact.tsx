@@ -43,7 +43,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-20 md:py-28 overflow-hidden">
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -64,7 +64,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="rounded-[2rem] border border-white/10 bg-neutral-950 p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="rounded-[2rem] glass-card-premium shadow-glow-white-hover p-6 md:p-8">
             <div className="space-y-8">
               <label className="block">
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Name</span>
@@ -73,7 +73,7 @@ export default function Contact() {
                   required
                   value={form.name}
                   onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                  className="mt-4 w-full border-b-2 border-gray-800 bg-transparent pb-3 text-base text-white outline-none focus:border-white"
+                  className="mt-4 w-full border-b-2 border-neutral-800 bg-transparent pb-3 text-base text-white outline-none focus:border-gold transition-all duration-300 focus:shadow-[0_1px_0_0_#C9A84C]"
                 />
               </label>
 
@@ -84,7 +84,7 @@ export default function Contact() {
                   required
                   value={form.email}
                   onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                  className="mt-4 w-full border-b-2 border-gray-800 bg-transparent pb-3 text-base text-white outline-none focus:border-white"
+                  className="mt-4 w-full border-b-2 border-neutral-800 bg-transparent pb-3 text-base text-white outline-none focus:border-gold transition-all duration-300 focus:shadow-[0_1px_0_0_#C9A84C]"
                 />
               </label>
 
@@ -95,7 +95,7 @@ export default function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
-                  className="mt-4 w-full resize-none border-b-2 border-gray-800 bg-transparent pb-3 text-base text-white outline-none focus:border-white"
+                  className="mt-4 w-full resize-none border-b-2 border-neutral-800 bg-transparent pb-3 text-base text-white outline-none focus:border-gold transition-all duration-300 focus:shadow-[0_1px_0_0_#C9A84C]"
                 />
               </label>
             </div>

@@ -27,6 +27,31 @@ export default function Hero() {
     return () => window.cancelAnimationFrame(animationFrame);
   }, []);
 
+  const titleContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const titleWordVariants = {
+    hidden: { opacity: 0, y: 35, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 12,
+      },
+    },
+  };
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-neutral-950 to-black pt-28">
       <div className="animated-grid absolute inset-0 opacity-80" />
@@ -43,45 +68,56 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
+          variants={titleContainerVariants}
+          initial="hidden"
+          animate="visible"
           className="flex flex-col items-center gap-5 lg:flex-row lg:gap-8"
         >
-          <span className="group cursor-default font-display text-4xl font-extrabold tracking-[-0.06em] text-white transition-all duration-300 md:text-6xl lg:text-8xl">
+          <motion.span
+            variants={titleWordVariants}
+            className="group cursor-default font-display text-4xl font-extrabold tracking-[-0.06em] text-white transition-all duration-300 md:text-6xl lg:text-8xl"
+          >
             <span className="inline-block transition-all duration-300 group-hover:text-gold-gradient">
               VIRTUAL
             </span>
-          </span>
+          </motion.span>
 
-          {hasVideoError ? (
-            <div className="flex h-24 w-24 items-center justify-center rounded-full border border-gold/30 bg-white/5 font-display text-xl font-bold tracking-[0.3em] text-white shadow-glow-gold md:h-32 md:w-32 lg:h-40 lg:w-40">
-              VV
-            </div>
-          ) : (
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              onError={() => setHasVideoError(true)}
-              className="h-16 w-auto object-contain md:h-32 lg:h-40"
-              style={{ mixBlendMode: "screen" }}
-            >
-              <source src="/logovid.webm" type="video/webm" />
-            </video>
-          )}
+          <motion.div
+            variants={titleWordVariants}
+            className="shrink-0"
+          >
+            {hasVideoError ? (
+              <div className="flex h-24 w-24 items-center justify-center rounded-full border border-gold/30 bg-white/5 font-display text-xl font-bold tracking-[0.3em] text-white shadow-glow-gold md:h-32 md:w-32 lg:h-40 lg:w-40">
+                VV
+              </div>
+            ) : (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                onError={() => setHasVideoError(true)}
+                className="h-16 w-auto object-contain md:h-32 lg:h-40"
+                style={{ mixBlendMode: "screen" }}
+              >
+                <source src="/logovid.webm" type="video/webm" />
+              </video>
+            )}
+          </motion.div>
 
-          <span className="font-display text-4xl font-extrabold tracking-[-0.06em] text-white md:text-6xl lg:text-8xl">
+          <motion.span
+            variants={titleWordVariants}
+            className="font-display text-4xl font-extrabold tracking-[-0.06em] text-white md:text-6xl lg:text-8xl"
+          >
             VALLEY
-          </span>
+          </motion.span>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
           className="mt-6 font-display text-lg font-semibold uppercase tracking-[0.45em] text-gray-300 md:text-2xl"
         >
           you dominate
@@ -90,8 +126,8 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.35 }}
-          className="pulse-card mt-12 w-full max-w-md rounded-2xl border border-white/20 bg-neutral-900/80 p-6 backdrop-blur-sm"
+          transition={{ duration: 0.75, delay: 0.65 }}
+          className="pulse-card mt-12 w-full max-w-md rounded-[2rem] glass-card-premium shadow-glow-white-hover p-8"
         >
           <p className="text-xs uppercase tracking-[0.35em] text-gray-400">
             Client momentum
@@ -99,10 +135,10 @@ export default function Hero() {
           <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
             Celebrating <span className="text-white">{count}+</span> Customers
           </h2>
-          <p className="mt-3 text-sm leading-7 text-gray-400">
+          <p className="mt-3 text-sm leading-7 text-gray-300">
             Trusted by founders, local businesses, and growth-minded teams who want a stronger digital presence across India.
           </p>
-          <Link href="/growth-partner" className="btn-secondary mt-6 gap-2">
+          <Link href="/growth-partner" className="btn-secondary mt-6 gap-2 hover:shadow-glow-white-hover">
             Become a Growth Partner
             <ArrowRight size={16} />
           </Link>
@@ -111,13 +147,13 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
-          <a href="#pricing" className="btn-primary">
+          <a href="#pricing" className="btn-primary shadow-glow-white-hover">
             View Packages
           </a>
-          <a href="#portfolio" className="btn-secondary">
+          <a href="#portfolio" className="btn-secondary hover:shadow-glow-white-hover">
             Recent Projects
           </a>
         </motion.div>

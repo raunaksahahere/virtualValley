@@ -74,7 +74,7 @@ export default function Pricing() {
   const isFiveCards = cards.length === 5;
 
   return (
-    <section id="pricing" className="py-20 md:py-28 relative">
+    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden">
       {/* Background radial highlight */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -246,10 +246,10 @@ export default function Pricing() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
               ref={scrollRef}
-              className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 w-full max-w-full [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               {cards.map((item) => (
-                <div key={`${item.name}-${item.kind}`} className="min-w-full snap-center px-1">
+                <div key={`${item.name}-${item.kind}`} className="w-full shrink-0 snap-center px-1">
                   <PricingCard item={item} isMonthly={item.kind === "social-monthly"} />
                 </div>
               ))}
@@ -295,10 +295,10 @@ function PricingCard({
 
   return (
     <div
-      className={`relative flex h-full flex-col rounded-[2rem] border overflow-hidden p-8 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 bg-neutral-950/40 backdrop-blur-md ${
+      className={`relative flex h-full flex-col rounded-[2rem] overflow-hidden p-8 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 ${
         item.popular
-          ? "border-gold/60 shadow-[0_0_30px_rgba(201,168,76,0.12)] hover:border-gold hover:shadow-[0_0_40px_rgba(201,168,76,0.2)]"
-          : "border-white/10 hover:border-white/25 hover:shadow-[0_0_30px_rgba(255,255,255,0.03)]"
+          ? "border border-gold/60 bg-neutral-950/50 backdrop-blur-xl shadow-[0_0_30px_rgba(201,168,76,0.12)] hover:border-gold hover:shadow-[0_0_40px_rgba(201,168,76,0.2)]"
+          : "glass-card-premium shadow-glow-white-hover"
       }`}
     >
       {/* Premium subtle inner radial glow */}

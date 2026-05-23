@@ -96,7 +96,7 @@ export default function Services() {
   }, [started]);
 
   return (
-    <section id="services" className="py-20 md:py-28">
+    <section id="services" className="py-20 md:py-28 overflow-hidden">
       <div className="section-shell" ref={sectionRef}>
         <div className="max-w-2xl">
           <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
@@ -120,7 +120,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.55, delay: index * 0.1 }}
-                className="group rounded-2xl border border-white/10 bg-neutral-900 p-6 md:p-8"
+                className="group rounded-[2rem] glass-card-premium shadow-glow-white-hover p-6 md:p-8"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-black shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:ring-1 group-hover:ring-gold/30">
                   <Icon size={24} />
@@ -141,7 +141,7 @@ export default function Services() {
           })}
         </div>
 
-        <div className="mt-10 rounded-[1.75rem] border border-white/20 bg-gradient-to-r from-neutral-900 to-neutral-800 p-6 md:p-8">
+        <div className="mt-10 rounded-[2rem] glass-card-premium shadow-glow-gold-hover border-gold/15 p-6 md:p-8">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {achievementTargets.map((item, index) => (
               <motion.div
@@ -150,7 +150,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 120, delay: index * 0.08 }}
-                className="rounded-2xl border border-white/8 bg-black/20 p-5"
+                className="rounded-2xl border border-white/5 bg-black/30 p-5"
               >
                 <div className="font-display text-3xl font-semibold text-white">
                   {counts[index]}

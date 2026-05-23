@@ -71,7 +71,7 @@ export default function RecentProjectsPage() {
                     {project.serviceType}
                   </span>
                 </div>
-                {project.projectLink ? (
+                {typeof project.projectLink === "string" && project.projectLink ? (
                   <Link href={project.projectLink} className="btn-secondary mt-6">
                     View Project
                   </Link>

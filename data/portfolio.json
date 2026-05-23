@@ -13,7 +13,7 @@
     "type": "Creative Production Studio",
     "serviceType": "social",
     "image": "/og-image.png",
-    "projectLink": ""
+    "projectLink": false
   },
   {
     "id": "3",
@@ -29,7 +29,7 @@
     "type": "Hospitality Group",
     "serviceType": "social",
     "image": "/og-image.png",
-    "projectLink": ""
+    "projectLink": false
   },
   {
     "id": "5",
@@ -45,6 +45,6 @@
     "type": "Fashion Label",
     "serviceType": "social",
     "image": "/og-image.png",
-    "projectLink": ""
+    "projectLink": false
   }
 ]
