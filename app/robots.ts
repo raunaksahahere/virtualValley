@@ -4,7 +4,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thevirtualvalley.co
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/", "/order"] }],
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/order", "/verify/"],
+      },
+    ],
     sitemap: `${siteUrl}/sitemap.xml`,
   };
 }
