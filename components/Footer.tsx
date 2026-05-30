@@ -5,9 +5,8 @@ import Link from "next/link";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com/virtualvalley", icon: Instagram },
+  { label: "Instagram", href: "https://www.instagram.com/thevirtualvalley/", icon: Instagram },
   { label: "Facebook", href: "https://facebook.com/virtualvalley", icon: Facebook },
-  { label: "YouTube", href: "https://youtube.com/@virtualvalley", icon: Youtube },
 ];
 
 export default function Footer() {
