@@ -210,6 +210,7 @@ export default function Pricing() {
             <div className="flex gap-3">
               <button
                 type="button"
+                aria-label="Previous pricing plan"
                 onClick={() => moveCarousel("prev")}
                 className="rounded-full border border-white/10 bg-white/5 p-3 text-white hover:bg-white/10 active:scale-95 transition-all"
               >
@@ -217,6 +218,7 @@ export default function Pricing() {
               </button>
               <button
                 type="button"
+                aria-label="Next pricing plan"
                 onClick={() => moveCarousel("next")}
                 className="rounded-full border border-white/10 bg-white/5 p-3 text-white hover:bg-white/10 active:scale-95 transition-all"
               >

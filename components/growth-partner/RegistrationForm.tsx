@@ -87,7 +87,11 @@ export default function RegistrationForm() {
           </h2>
           <form onSubmit={handleSubmit} className="mt-10 grid gap-6 md:grid-cols-2">
             {/* Honeypot - hidden from real users, catches bots */}
+            <label htmlFor="growth-partner-website" className="sr-only" aria-hidden="true">
+              Website
+            </label>
             <input
+              id="growth-partner-website"
               type="text"
               name="website"
               value=""
@@ -120,9 +124,11 @@ export default function RegistrationForm() {
                 ["referralExperience", "Referral Experience"],
               ] as const
             ).map(([key, label]) => (
-              <label key={key} className="block">
+              <label key={key} htmlFor={`growth-partner-${key}`} className="block">
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">{label}</span>
                 <input
+                  id={`growth-partner-${key}`}
+                  name={key}
                   type={key === "email" ? "email" : "text"}
                   required={requiredFields.has(key)}
                   value={form[key]}
@@ -133,9 +139,11 @@ export default function RegistrationForm() {
                 />
               </label>
             ))}
-            <label className="block md:col-span-2">
+            <label htmlFor="growth-partner-message" className="block md:col-span-2">
               <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Message</span>
               <textarea
+                id="growth-partner-message"
+                name="message"
                 required
                 rows={5}
                 value={form.message}

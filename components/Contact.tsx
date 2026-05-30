@@ -70,7 +70,11 @@ export default function Contact() {
 
           <form onSubmit={handleSubmit} className="rounded-[2rem] glass-card-premium shadow-glow-white-hover p-6 md:p-8">
             {/* Honeypot - hidden from real users, catches bots */}
+            <label htmlFor="contact-website" className="sr-only" aria-hidden="true">
+              Website
+            </label>
             <input
+              id="contact-website"
               type="text"
               name="website"
               value=""
@@ -89,9 +93,11 @@ export default function Contact() {
               }}
             />
             <div className="space-y-8">
-              <label className="block">
+              <label htmlFor="contact-name" className="block">
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Name</span>
                 <input
+                  id="contact-name"
+                  name="name"
                   type="text"
                   required
                   value={form.name}
@@ -100,9 +106,11 @@ export default function Contact() {
                 />
               </label>
 
-              <label className="block">
+              <label htmlFor="contact-email" className="block">
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Email Address</span>
                 <input
+                  id="contact-email"
+                  name="email"
                   type="email"
                   required
                   value={form.email}
@@ -111,9 +119,11 @@ export default function Contact() {
                 />
               </label>
 
-              <label className="block">
+              <label htmlFor="contact-message" className="block">
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Message</span>
                 <textarea
+                  id="contact-message"
+                  name="message"
                   required
                   rows={5}
                   value={form.message}

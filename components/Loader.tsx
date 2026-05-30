@@ -40,7 +40,7 @@ export default function Loader({ onComplete }: LoaderProps) {
               autoPlay
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               onError={() => setHasVideoError(true)}
               className="object-contain"
               style={{

@@ -96,7 +96,7 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
-                preload="auto"
+                preload="metadata"
                 onError={() => setHasVideoError(true)}
                 className="h-16 w-auto object-contain md:h-32 lg:h-40"
                 style={{ mixBlendMode: "screen" }}

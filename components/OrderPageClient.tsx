@@ -199,7 +199,11 @@ export default function OrderPageClient({
           <p className="text-sm uppercase tracking-[0.35em] text-gray-500">Send enquiry</p>
           <form onSubmit={handleSubmit} className="mt-6 space-y-6">
             {/* Honeypot - hidden from real users, catches bots */}
+            <label htmlFor="order-website" className="sr-only" aria-hidden="true">
+              Website
+            </label>
             <input
+              id="order-website"
               type="text"
               name="website"
               value=""
@@ -218,30 +222,40 @@ export default function OrderPageClient({
               }}
             />
             <Field
+              id="order-full-name"
+              name="fullName"
               label="Full Name"
               value={form.fullName}
               onChange={(value) => setForm((current) => ({ ...current, fullName: value }))}
             />
             <Field
+              id="order-email"
+              name="email"
               label="Email Address"
               type="email"
               value={form.email}
               onChange={(value) => setForm((current) => ({ ...current, email: value }))}
             />
             <Field
+              id="order-phone"
+              name="phone"
               label="Phone Number"
               value={form.phone}
               onChange={(value) => setForm((current) => ({ ...current, phone: value }))}
             />
             <Field
+              id="order-company"
+              name="company"
               label="Company Name"
               required={false}
               value={form.company}
               onChange={(value) => setForm((current) => ({ ...current, company: value }))}
             />
-            <label className="block">
+            <label htmlFor="order-project-details" className="block">
               <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Project Details</span>
               <textarea
+                id="order-project-details"
+                name="projectDetails"
                 required
                 rows={5}
                 value={form.projectDetails}
@@ -269,12 +283,16 @@ export default function OrderPageClient({
 }
 
 function Field({
+  id,
+  name,
   label,
   value,
   onChange,
   type = "text",
   required = true,
 }: {
+  id: string;
+  name: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -282,9 +300,11 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <label className="block">
+    <label htmlFor={id} className="block">
       <span className="text-xs uppercase tracking-[0.28em] text-gray-500">{label}</span>
       <input
+        id={id}
+        name={name}
         type={type}
         required={required}
         value={value}

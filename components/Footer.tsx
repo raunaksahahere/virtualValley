@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/logo.png"
-                alt="Virtual Valley logo"
+                alt="Virtual Valley Logo"
                 width={44}
                 height={44}
                 className="h-11 w-11 rounded-full object-cover"
@@ -38,6 +38,7 @@ export default function Footer() {
                   <Link
                     key={item.label}
                     href={item.href}
+                    aria-label={`Visit Virtual Valley on ${item.label}`}
                     className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white hover:border-white/20 hover:bg-white/10"
                   >
                     <Icon size={18} />

@@ -67,7 +67,7 @@ export default function Portfolio() {
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.name}
+                  alt={`${project.name} project screenshot`}
                   fill
                   loading="lazy"
                   className="object-cover transition-transform duration-700 ease-out hover:scale-105"

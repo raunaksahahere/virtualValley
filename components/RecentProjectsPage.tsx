@@ -55,7 +55,7 @@ export default function RecentProjectsPage() {
               <div className="relative aspect-[16/10]">
                 <Image
                   src={project.image}
-                  alt={project.name}
+                  alt={`${project.name} project screenshot`}
                   fill
                   loading="lazy"
                   className="object-cover"

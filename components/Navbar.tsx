@@ -62,7 +62,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="Virtual Valley logo"
+              alt="Virtual Valley Logo"
               width={48}
               height={48}
               priority
@@ -115,7 +115,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            aria-label="Toggle navigation menu"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             className="rounded-full border border-white/10 p-2 text-white md:hidden"
             onClick={() => setIsOpen((value) => !value)}
           >
