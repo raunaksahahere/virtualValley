@@ -1,50 +1,42 @@
 [
   {
     "id": "1",
-    "name": "Aurora Commerce",
-    "type": "Retail Technology",
+    "name": "Tuition Student App",
+    "type": "Education Platform",
     "serviceType": "website",
-    "image": "/og-image.png",
-    "projectLink": ""
+    "image": "/project-id-1.png",
+    "projectLink": "https://tutionstudentapp.netlify.app/"
   },
   {
     "id": "2",
-    "name": "House of Kineto",
-    "type": "Creative Production Studio",
-    "serviceType": "social",
-    "image": "/og-image.png",
-    "projectLink": false
+    "name": "Institute Pro",
+    "type": "Educational Institution",
+    "serviceType": "website",
+    "image": "/project-id-2.png",
+    "projectLink": "https://instituteprodemo.netlify.app/"
   },
   {
     "id": "3",
-    "name": "Medisphere Care",
-    "type": "Healthcare Brand",
+    "name": "Studio Demo",
+    "type": "Creative Production Studio",
     "serviceType": "website",
-    "image": "/og-image.png",
-    "projectLink": ""
+    "image": "/project-id-3.png",
+    "projectLink": "https://studio-demo-new.netlify.app/"
   },
   {
     "id": "4",
-    "name": "Bengal Dine",
-    "type": "Hospitality Group",
-    "serviceType": "social",
-    "image": "/og-image.png",
-    "projectLink": false
+    "name": "Medisphere Care",
+    "type": "Healthcare Brand",
+    "serviceType": "website",
+    "image": "/project-id-4.png",
+    "projectLink": "https://hospitaldemonew.netlify.app/"
   },
   {
     "id": "5",
-    "name": "Ledger Nest",
-    "type": "Finance Startup",
+    "name": "Momo Star",
+    "type": "Hospitality Group",
     "serviceType": "website",
-    "image": "/og-image.png",
-    "projectLink": ""
-  },
-  {
-    "id": "6",
-    "name": "Threadline India",
-    "type": "Fashion Label",
-    "serviceType": "social",
-    "image": "/og-image.png",
-    "projectLink": false
+    "image": "/project-id-5.png",
+    "projectLink": "https://resturantdemobyvirtualvalley.netlify.app/"
   }
 ]
