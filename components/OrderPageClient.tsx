@@ -94,6 +94,10 @@ export default function OrderPageClient({
     setSubmitting(true);
 
     try {
+      const website =
+        (document.querySelector('input[name="website"]') as HTMLInputElement)?.value ||
+        "";
+
       const response = await fetch("/api/order-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -101,6 +105,7 @@ export default function OrderPageClient({
           ...form,
           selectedPackage,
           isMonthly: searchParams.isMonthly === "true",
+          website,
         }),
       });
 
@@ -193,6 +198,25 @@ export default function OrderPageClient({
         <section className="rounded-[2rem] border border-white/10 bg-neutral-950 p-8">
           <p className="text-sm uppercase tracking-[0.35em] text-gray-500">Send enquiry</p>
           <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+            {/* Honeypot - hidden from real users, catches bots */}
+            <input
+              type="text"
+              name="website"
+              value=""
+              onChange={() => {}}
+              autoComplete="off"
+              tabIndex={-1}
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                width: "1px",
+                height: "1px",
+                opacity: 0,
+                overflow: "hidden",
+                pointerEvents: "none",
+              }}
+            />
             <Field
               label="Full Name"
               value={form.fullName}
@@ -211,6 +235,7 @@ export default function OrderPageClient({
             />
             <Field
               label="Company Name"
+              required={false}
               value={form.company}
               onChange={(value) => setForm((current) => ({ ...current, company: value }))}
             />
@@ -248,18 +273,20 @@ function Field({
   value,
   onChange,
   type = "text",
+  required = true,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   type?: string;
+  required?: boolean;
 }) {
   return (
     <label className="block">
       <span className="text-xs uppercase tracking-[0.28em] text-gray-500">{label}</span>
       <input
         type={type}
-        required
+        required={required}
         value={value}
         onChange={(event) => onChange(event.target.value)}
         className="mt-4 w-full border-b-2 border-gray-800 bg-transparent pb-3 text-base text-white outline-none focus:border-white"

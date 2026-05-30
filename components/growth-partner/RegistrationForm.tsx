@@ -34,6 +34,8 @@ const initialState: FormState = {
   message: "",
 };
 
+const requiredFields = new Set<keyof FormState>(["name", "email", "phone", "city"]);
+
 export default function RegistrationForm() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState<"idle" | "loading" | "error" | "success">("idle");
@@ -45,10 +47,14 @@ export default function RegistrationForm() {
     setFeedback("");
 
     try {
+      const website =
+        (document.querySelector('input[name="website"]') as HTMLInputElement)?.value ||
+        "";
+
       const response = await fetch("/api/growth-partner/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website }),
       });
 
       const data = (await response.json()) as { message?: string };
@@ -80,6 +86,25 @@ export default function RegistrationForm() {
             Apply to become a Growth Partner.
           </h2>
           <form onSubmit={handleSubmit} className="mt-10 grid gap-6 md:grid-cols-2">
+            {/* Honeypot - hidden from real users, catches bots */}
+            <input
+              type="text"
+              name="website"
+              value=""
+              onChange={() => {}}
+              autoComplete="off"
+              tabIndex={-1}
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                width: "1px",
+                height: "1px",
+                opacity: 0,
+                overflow: "hidden",
+                pointerEvents: "none",
+              }}
+            />
             {(
               [
                 ["name", "Full Name"],
@@ -99,7 +124,7 @@ export default function RegistrationForm() {
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">{label}</span>
                 <input
                   type={key === "email" ? "email" : "text"}
-                  required
+                  required={requiredFields.has(key)}
                   value={form[key]}
                   onChange={(event) =>
                     setForm((current) => ({ ...current, [key]: event.target.value }))

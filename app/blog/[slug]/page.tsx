@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import BlogCard from "@/components/BlogCard";
 import Footer from "@/components/Footer";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import blogPosts from "@/data/blog-posts.json";
 
@@ -63,6 +64,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <main id="top" className="bg-black text-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://thevirtualvalley.com" },
+          { name: "Blog", url: "https://thevirtualvalley.com/blog" },
+          { name: post.title, url: `https://thevirtualvalley.com/blog/${post.slug}` },
+        ]}
+      />
       <Navbar />
       <article className="min-h-screen px-4 py-24 md:px-6">
         <div className="mx-auto max-w-4xl">

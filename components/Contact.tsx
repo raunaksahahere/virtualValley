@@ -19,10 +19,14 @@ export default function Contact() {
     setFeedback("");
 
     try {
+      const website =
+        (document.querySelector('input[name="website"]') as HTMLInputElement)?.value ||
+        "";
+
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website }),
       });
 
       const data = (await response.json()) as { message?: string };
@@ -65,6 +69,25 @@ export default function Contact() {
           </div>
 
           <form onSubmit={handleSubmit} className="rounded-[2rem] glass-card-premium shadow-glow-white-hover p-6 md:p-8">
+            {/* Honeypot - hidden from real users, catches bots */}
+            <input
+              type="text"
+              name="website"
+              value=""
+              onChange={() => {}}
+              autoComplete="off"
+              tabIndex={-1}
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                width: "1px",
+                height: "1px",
+                opacity: 0,
+                overflow: "hidden",
+                pointerEvents: "none",
+              }}
+            />
             <div className="space-y-8">
               <label className="block">
                 <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Name</span>

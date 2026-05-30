@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import CommissionStructure from "@/components/growth-partner/CommissionStructure";
 import Footer from "@/components/Footer";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import GrowthPartnerHeader from "@/components/growth-partner/GrowthPartnerHeader";
 import GrowthPrograms from "@/components/growth-partner/GrowthPrograms";
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
 export default function GrowthPartnerPage() {
   return (
     <main id="top" className="bg-black text-white">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://thevirtualvalley.com" },
+          { name: "Growth Partner", url: "https://thevirtualvalley.com/growth-partner" },
+        ]}
+      />
       <Navbar />
       <GrowthPartnerHeader />
       <OpenOpportunity />

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-import { LocalBusinessJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
+import { FAQJsonLd, LocalBusinessJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
 
 import "./globals.css";
 
@@ -87,8 +87,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
+        <link rel="llms" href="/llms.txt" type="text/plain" />
         <LocalBusinessJsonLd />
         <WebsiteJsonLd />
+        <FAQJsonLd />
       </head>
       <body className="bg-black text-white">
         {gtmId ? (

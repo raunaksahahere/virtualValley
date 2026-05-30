@@ -96,3 +96,107 @@ export function WebsiteJsonLd() {
     />
   );
 }
+
+export function FAQJsonLd() {
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What services does Virtual Valley offer?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Virtual Valley offers website development, website repair and maintenance, and social media management services across India.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much does website development cost in India?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Virtual Valley's website development packages range from ₹10,000 for a basic 1–3 page site to ₹90,000+ for enterprise-grade solutions with advanced features.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where is Virtual Valley located?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Virtual Valley is based in Teghoria, Kolkata, West Bengal, India. We serve clients across all of India.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How can I contact Virtual Valley?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can reach Virtual Valley at contact@thevirtualvalley.com, by phone at +91 8017007352, or via WhatsApp at the same number.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Virtual Valley work with clients across India?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, Virtual Valley serves clients across all of India, not just Kolkata.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the Virtual Valley Growth Partner Program?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The Growth Partner Program is a commission-based referral program where partners earn commission for every client they refer to Virtual Valley for website development or social media services.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does it take to build a website?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Basic sites take 3–7 days, professional builds take 2–4 weeks, and enterprise solutions are scoped per project based on requirements.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What social media platforms does Virtual Valley manage?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Virtual Valley manages one platform per plan. Platforms include Instagram, Facebook, YouTube, and others based on client needs.",
+        },
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+    />
+  );
+}
+
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: { name: string; url: string }[];
+}) {
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+    />
+  );
+}
