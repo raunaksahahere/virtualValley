@@ -6,7 +6,8 @@ const ContentSecurityPolicy = `
     https://www.googletagmanager.com
     https://www.google-analytics.com
     https://ssl.google-analytics.com
-    https://tagmanager.google.com;
+    https://tagmanager.google.com
+    https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline'
     https://fonts.googleapis.com;
   font-src 'self'
@@ -18,7 +19,9 @@ const ContentSecurityPolicy = `
   connect-src 'self'
     https://www.google-analytics.com
     https://www.googletagmanager.com
-    https://analytics.google.com;
+    https://analytics.google.com
+    https://va.vercel-scripts.com
+    https://vitals.vercel-insights.com;
   frame-src 'none';
   object-src 'none';
   base-uri 'self';
