@@ -24,7 +24,7 @@ export default function RefundPolicyPage() {
       </p>
       <h2>Refund contact</h2>
       <p>
-        Refund and dispute requests should be sent to contact.virtualvalley@gmail.com.
+        Refund and dispute requests should be sent to contact@thevirtualvalley.com.
       </p>
     </LegalPageLayout>
   );
