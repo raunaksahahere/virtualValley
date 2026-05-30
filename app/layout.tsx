@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { FAQJsonLd, LocalBusinessJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
 
