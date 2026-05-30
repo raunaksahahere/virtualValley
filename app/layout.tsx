@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Virtual Valley", url: siteUrl }],
   creator: "Virtual Valley",
   publisher: "Virtual Valley",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: {
     index: true,
     follow: true,
