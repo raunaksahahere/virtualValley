@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
       </p>
       <h2>Contact for privacy requests</h2>
       <p>
-        For data access, correction, or deletion requests, email contact.virtualvalley@gmail.com or call +91 8017007352.
+        For data access, correction, or deletion requests, email contact@thevirtualvalley.com or call +91 8017007352.
       </p>
     </LegalPageLayout>
   );
