@@ -9,7 +9,7 @@ export function LocalBusinessJsonLd() {
     description:
       "Premium digital agency in Kolkata offering website development, social media management, and digital marketing across India.",
     telephone: "+91-8017007352",
-    email: "contact.virtualvalley@gmail.com",
+    email: "contact@thevirtualvalley.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Kolkata",

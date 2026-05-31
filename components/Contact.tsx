@@ -62,7 +62,7 @@ export default function Contact() {
             </p>
 
             <div className="mt-8 space-y-4 text-sm text-gray-300">
-              <p>Email: contact.virtualvalley@gmail.com</p>
+              <p>Email: contact@thevirtualvalley.com</p>
               <p>Phone: +91 8017007352</p>
               <p>Hours: Monday - Sunday, 9:00 AM - 10:00 PM</p>
             </div>

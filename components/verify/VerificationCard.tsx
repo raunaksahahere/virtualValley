@@ -139,7 +139,7 @@ export function VerificationCard({ certificate }: { certificate: Certificate }) 
 
           <footer className="flex flex-col gap-2 bg-[#1B2A6B] px-6 py-4 text-center text-xs text-[#9FB0E0] sm:flex-row sm:items-center sm:justify-between sm:text-left">
             <span>thevirtualvalley.com</span>
-            <span>contact.virtualvalley@gmail.com</span>
+            <span>contact@thevirtualvalley.com</span>
           </footer>
         </section>
 

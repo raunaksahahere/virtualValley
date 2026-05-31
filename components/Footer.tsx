@@ -71,7 +71,7 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-xl font-semibold text-white">Contact</h3>
             <div className="mt-5 flex flex-col gap-3 text-sm text-gray-400">
-              <p>contact.virtualvalley@gmail.com</p>
+              <p>contact@thevirtualvalley.com</p>
               <p>+91 8017007352</p>
               <p>Kolkata, West Bengal, India</p>
             </div>

@@ -26,7 +26,7 @@ export function CertificateNotFound({ certId }: { certId: string }) {
               Contact
             </p>
             <p className="mt-1 text-sm font-medium text-[#1B2A6B]">
-              contact.virtualvalley@gmail.com
+              contact@thevirtualvalley.com
             </p>
           </div>
 

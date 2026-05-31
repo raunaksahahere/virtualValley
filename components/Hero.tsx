@@ -57,7 +57,12 @@ export default function Hero() {
       <div className="animated-grid absolute inset-0 opacity-80" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(201,168,76,0.08),transparent_18%)]" />
 
-      <div className="section-shell relative flex min-h-[calc(100vh-7rem)] flex-col items-center justify-center py-16 text-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="section-shell relative flex min-h-[calc(100vh-7rem)] flex-col items-center justify-center py-16 text-center"
+      >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -157,7 +162,7 @@ export default function Hero() {
             Recent Projects
           </a>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
