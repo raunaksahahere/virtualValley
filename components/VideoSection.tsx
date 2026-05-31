@@ -25,7 +25,7 @@ export default function VideoSection() {
             loop
             muted
             playsInline
-            preload="none"
+            preload="auto"
             onError={() => setHasVideoError(true)}
             className="w-full rounded-[1.5rem] border border-white/10 bg-black object-cover"
           >
