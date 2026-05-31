@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/thevirtualvalley/", icon: Instagram },
-  { label: "Facebook", href: "https://facebook.com/virtualvalley", icon: Facebook },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61589295369603", icon: Facebook },
 ];
 
 export default function Footer() {
