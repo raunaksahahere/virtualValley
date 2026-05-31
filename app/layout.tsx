@@ -93,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
+        <link rel="preload" as="image" href="/logo-poster.webp" />
         <link rel="llms" href="/llms.txt" type="text/plain" />
         <LocalBusinessJsonLd />
         <WebsiteJsonLd />

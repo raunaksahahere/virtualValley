@@ -101,6 +101,7 @@ export default function Hero() {
                 loop
                 muted
                 playsInline
+                poster="/logo-poster.webp"
                 preload="metadata"
                 onError={() => setHasVideoError(true)}
                 className="h-16 w-auto object-contain md:h-32 lg:h-40"
