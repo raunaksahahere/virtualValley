@@ -115,12 +115,12 @@ const QR_PASTE_Y =
 
 const FONT_PATHS = {
   bold: [
+    path.join(process.cwd(), "public/fonts/DejaVuSerif-Bold.ttf"),
     "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
-    "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf",
   ],
   regular: [
+    path.join(process.cwd(), "public/fonts/DejaVuSerif.ttf"),
     "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
-    "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
   ],
 };
 
