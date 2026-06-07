@@ -125,7 +125,7 @@
     {
       "name": "Basic Plan",
       "weekly": 2100,
-      "monthly": 4200,
+      "monthly": 5500,
       "popular": false,
       "features": [
         "1 platform management",
@@ -138,7 +138,7 @@
     {
       "name": "Professional Plan",
       "weekly": 3500,
-      "monthly": 7000,
+      "monthly": 8600,
       "popular": true,
       "features": [
         "1 platform management",
@@ -153,7 +153,7 @@
     {
       "name": "Enterprise Plan",
       "weekly": 5000,
-      "monthly": 10000,
+      "monthly": 14000,
       "popular": false,
       "features": [
         "1 platform management",
