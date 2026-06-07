@@ -13,7 +13,7 @@ export default function Hero() {
     let animationFrame = 0;
     const start = performance.now();
     const duration = 2000;
-    const target = 50;
+    const target = 100;
 
     const tick = (timestamp: number) => {
       const progress = Math.min((timestamp - start) / duration, 1);
