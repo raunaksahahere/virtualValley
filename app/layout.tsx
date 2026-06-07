@@ -80,9 +80,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
-  verification: {
-    google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN",
-  },
 };
 
 export default function RootLayout({
