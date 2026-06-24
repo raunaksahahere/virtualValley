@@ -11,7 +11,8 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold/20 bg-neutral-950 py-14">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-black py-16">
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.14),transparent_72%)]" />
       <div className="section-shell">
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
           <div>
@@ -27,7 +28,7 @@ export default function Footer() {
                 VIRTUAL VALLEY
               </span>
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-7 text-gray-400">
+            <p className="mt-5 max-w-xs text-sm leading-7 text-white-secondary">
               Premium digital agency services for brands that want better websites, sharper social media, and more credible digital presence.
             </p>
             <div className="mt-6 flex gap-3">
@@ -38,7 +39,7 @@ export default function Footer() {
                     key={item.label}
                     href={item.href}
                     aria-label={`Visit Virtual Valley on ${item.label}`}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white hover:border-white/20 hover:bg-white/10"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white backdrop-blur-md hover:border-purple/30 hover:bg-white/10 hover:shadow-glow-purple"
                   >
                     <Icon size={18} />
                   </Link>
@@ -49,28 +50,28 @@ export default function Footer() {
 
           <div>
             <h3 className="font-display text-xl font-semibold text-white">Services</h3>
-            <div className="mt-5 flex flex-col gap-3 text-sm text-gray-400">
-              <a href="#services">Website Development</a>
-              <a href="#services">Website Repair & Maintenance</a>
-              <a href="#services">Social Media Management</a>
-              <a href="#pricing">Pricing</a>
+            <div className="mt-5 flex flex-col gap-3 text-sm text-white-secondary">
+              <a className="hover:text-white" href="#services">Website Development</a>
+              <a className="hover:text-white" href="#services">Website Repair & Maintenance</a>
+              <a className="hover:text-white" href="#services">Social Media Management</a>
+              <a className="hover:text-white" href="#pricing">Pricing</a>
             </div>
           </div>
 
           <div>
             <h3 className="font-display text-xl font-semibold text-white">Company</h3>
-            <div className="mt-5 flex flex-col gap-3 text-sm text-gray-400">
-              <a href="#about">About</a>
-              <a href="#portfolio">Portfolio</a>
-              <Link href="/recentprojects">Recent Projects</Link>
-              <a href="#contact">Contact</a>
-              <Link href="/blog">Blog</Link>
+            <div className="mt-5 flex flex-col gap-3 text-sm text-white-secondary">
+              <a className="hover:text-white" href="#about">About</a>
+              <a className="hover:text-white" href="#portfolio">Portfolio</a>
+              <Link className="hover:text-white" href="/recentprojects">Recent Projects</Link>
+              <a className="hover:text-white" href="#contact">Contact</a>
+              <Link className="hover:text-white" href="/blog">Blog</Link>
             </div>
           </div>
 
           <div>
             <h3 className="font-display text-xl font-semibold text-white">Contact</h3>
-            <div className="mt-5 flex flex-col gap-3 text-sm text-gray-400">
+            <div className="mt-5 flex flex-col gap-3 text-sm text-white-secondary">
               <p>contact@thevirtualvalley.com</p>
               <p>+91 8017007352</p>
               <p>Kolkata, West Bengal, India</p>
@@ -78,12 +79,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white-secondary md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <span>© {new Date().getFullYear()} Virtual Valley. All rights reserved.</span>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms-of-service">Terms of Service</Link>
-            <Link href="/refund-policy">Refund Policy</Link>
+            <Link className="hover:text-white" href="/privacy-policy">Privacy Policy</Link>
+            <Link className="hover:text-white" href="/terms-of-service">Terms of Service</Link>
+            <Link className="hover:text-white" href="/refund-policy">Refund Policy</Link>
           </div>
           <a href="#top" className="hover:text-gold">
             Back to top

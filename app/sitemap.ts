@@ -1,11 +1,19 @@
 import type { MetadataRoute } from "next";
 
 import blogPosts from "@/data/blog-posts.json";
+import { getMdxPosts } from "@/lib/mdx";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thevirtualvalley.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogUrls = blogPosts.map((post) => ({
+    url: `${siteUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+  const mdxPosts = getMdxPosts();
+  const mdxRoutes = mdxPosts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
@@ -56,5 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     ...blogUrls,
+    ...mdxRoutes,
   ];
 }

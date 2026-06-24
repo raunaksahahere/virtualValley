@@ -1,31 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { ArrowRight, BadgeCheck, MapPin, MessageCircle, Zap } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Hero() {
-  const [count, setCount] = useState(0);
   const [hasVideoError, setHasVideoError] = useState(false);
-
-  useEffect(() => {
-    let animationFrame = 0;
-    const start = performance.now();
-    const duration = 2000;
-    const target = 100;
-
-    const tick = (timestamp: number) => {
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setCount(Math.round(progress * target));
-      if (progress < 1) {
-        animationFrame = window.requestAnimationFrame(tick);
-      }
-    };
-
-    animationFrame = window.requestAnimationFrame(tick);
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, []);
+  const trustItems = [
+    { label: "7–14 Day Delivery", icon: Zap },
+    { label: "WhatsApp Support", icon: MessageCircle },
+    { label: "Kolkata-Based Team", icon: MapPin },
+    { label: "100% Satisfaction", icon: BadgeCheck },
+  ];
 
   const titleContainerVariants = {
     hidden: { opacity: 0 },
@@ -53,21 +40,42 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-neutral-950 to-black pt-28">
-      <div className="animated-grid absolute inset-0 opacity-80" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(201,168,76,0.08),transparent_18%)]" />
+    <section className="relative min-h-screen overflow-hidden pt-28">
+      <Image
+        src="/TGS.png"
+        alt=""
+        width={1400}
+        height={900}
+        priority
+        aria-hidden="true"
+        className="absolute left-1/2 top-0 -translate-x-1/2 w-[180%] sm:w-[130%] max-w-none pointer-events-none select-none"
+        style={{ opacity: 0.10 }}
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(139,92,246,0.24),transparent_24%),radial-gradient(circle_at_78%_14%,rgba(212,175,55,0.1),transparent_14%),radial-gradient(circle_at_50%_55%,rgba(255,255,255,0.04),transparent_28%)]" />
+      <div className="absolute inset-x-0 top-24 h-56 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.22),transparent_58%)] blur-3xl" />
+      <div className="absolute inset-x-0 top-[34%] h-40 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08),transparent_62%)] blur-3xl" />
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="section-shell relative flex min-h-[calc(100vh-7rem)] flex-col items-center justify-center py-16 text-center"
+        className="section-shell relative z-10 flex min-h-[calc(100vh-7rem)] flex-col items-center justify-center py-16 text-center"
       >
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-white-secondary backdrop-blur-md"
+        >
+          <span className="h-2 w-2 rounded-full bg-purple" />
+          Digital Agency · Kolkata, India
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 font-display text-lg font-semibold uppercase tracking-[0.45em] text-gray-300 md:text-2xl"
+          className="mb-5 font-display text-sm font-semibold uppercase tracking-[0.55em] text-white-secondary md:text-base"
         >
           we build
         </motion.p>
@@ -80,19 +88,18 @@ export default function Hero() {
         >
           <motion.span
             variants={titleWordVariants}
-            className="group cursor-default font-display text-4xl font-extrabold tracking-[-0.06em] text-white transition-all duration-300 md:text-6xl lg:text-8xl"
+            className="group cursor-default font-display text-5xl font-extrabold tracking-[-0.08em] text-white transition-all duration-300 md:text-7xl lg:text-[8rem]"
           >
-            <span className="inline-block transition-all duration-300 group-hover:text-gold-gradient">
+            <span className="inline-block transition-all duration-300 group-hover:bg-luxury-gradient group-hover:bg-clip-text group-hover:text-transparent">
               VIRTUAL
             </span>
           </motion.span>
 
-          <motion.div
-            variants={titleWordVariants}
-            className="shrink-0"
-          >
+          <motion.div variants={titleWordVariants} className="relative shrink-0">
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.26),transparent_58%)] blur-2xl" />
+            <div className="absolute inset-2 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.14),transparent_62%)] blur-2xl" />
             {hasVideoError ? (
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border border-gold/30 bg-white/5 font-display text-xl font-bold tracking-[0.3em] text-white shadow-glow-gold md:h-32 md:w-32 lg:h-40 lg:w-40">
+              <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-gold/30 bg-white/5 font-display text-xl font-bold tracking-[0.3em] text-white shadow-glow-gold md:h-32 md:w-32 lg:h-40 lg:w-40">
                 VV
               </div>
             ) : (
@@ -104,8 +111,11 @@ export default function Hero() {
                 poster="/logo-poster.webp"
                 preload="metadata"
                 onError={() => setHasVideoError(true)}
-                className="h-16 w-auto object-contain md:h-32 lg:h-40"
-                style={{ mixBlendMode: "screen" }}
+                className="relative h-16 w-auto object-contain md:h-32 lg:h-40"
+                style={{
+                  mixBlendMode: "screen",
+                  background: "transparent",
+                }}
               >
                 <source src="/logovid.webm" type="video/webm" />
               </video>
@@ -114,7 +124,7 @@ export default function Hero() {
 
           <motion.span
             variants={titleWordVariants}
-            className="font-display text-4xl font-extrabold tracking-[-0.06em] text-white md:text-6xl lg:text-8xl"
+            className="font-display text-5xl font-extrabold tracking-[-0.08em] text-white md:text-7xl lg:text-[8rem]"
           >
             VALLEY
           </motion.span>
@@ -124,31 +134,19 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-6 font-display text-lg font-semibold uppercase tracking-[0.45em] text-gray-300 md:text-2xl"
+          className="mt-5 font-display text-sm font-semibold uppercase tracking-[0.55em] text-white-secondary md:text-base"
         >
           you dominate
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 26 }}
+        <motion.p
+          initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.65 }}
-          className="pulse-card mt-12 w-full max-w-md rounded-[2rem] glass-card-premium shadow-glow-white-hover p-8"
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="mx-auto mt-8 max-w-3xl text-base leading-8 text-white-secondary md:text-lg"
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-gray-400">
-            Client momentum
-          </p>
-          <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
-            Celebrating <span className="text-white">{count}+</span> Customers
-          </h2>
-          <p className="mt-3 text-sm leading-7 text-gray-300">
-            Trusted by founders, local businesses, and growth-minded teams who want a stronger digital presence across India.
-          </p>
-          <Link href="/growth-partner" className="btn-secondary mt-6 gap-2 hover:shadow-glow-white-hover">
-            Become a Growth Partner
-            <ArrowRight size={16} />
-          </Link>
-        </motion.div>
+          We build websites, manage social media, and drive real growth for businesses across Kolkata and West Bengal — straightforward work, honest timelines, results you can measure.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -156,13 +154,34 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
-          <a href="#pricing" className="btn-primary shadow-glow-white-hover">
+          <a href="#pricing" className="btn-primary shadow-glow-purple-hover">
             View Packages
+            <ArrowRight size={16} />
           </a>
           <a href="#portfolio" className="btn-secondary hover:shadow-glow-white-hover">
             Recent Projects
           </a>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
+          {trustItems.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={item.label} className="trust-pill">
+                <Icon size={14} className="text-purple" />
+                <span>{item.label}</span>
+              </div>
+            );
+          })}
+        </motion.div>
+
+
       </motion.div>
     </section>
   );

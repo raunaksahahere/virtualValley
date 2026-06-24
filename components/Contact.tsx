@@ -47,11 +47,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 overflow-hidden">
+    <section id="contact" className="relative overflow-hidden py-20 md:py-28">
+      <div className="absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.12),transparent_70%)]" />
       <div className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
+            <p className="text-sm uppercase tracking-[0.35em] text-white-secondary">
               Contact
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold md:text-5xl">
@@ -61,14 +62,14 @@ export default function Contact() {
               Tell us what you are building, repairing, or trying to grow. We will respond with the right next step.
             </p>
 
-            <div className="mt-8 space-y-4 text-sm text-gray-300">
+            <div className="mt-8 space-y-4 text-sm text-white-secondary">
               <p>Email: contact@thevirtualvalley.com</p>
               <p>Phone: +91 8017007352</p>
               <p>Hours: Monday - Sunday, 9:00 AM - 10:00 PM</p>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="rounded-[2rem] glass-card-premium shadow-glow-white-hover p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="rounded-[2rem] glass-card-premium shadow-glow-purple-hover p-6 md:p-8">
             {/* Honeypot - hidden from real users, catches bots */}
             <label htmlFor="contact-website" className="sr-only" aria-hidden="true">
               Website
@@ -92,9 +93,9 @@ export default function Contact() {
                 pointerEvents: "none",
               }}
             />
-            <div className="space-y-8">
+            <div className="space-y-5">
               <label htmlFor="contact-name" className="block">
-                <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Name</span>
+                <span className="text-xs uppercase tracking-[0.28em] text-white-secondary">Name</span>
                 <input
                   id="contact-name"
                   name="name"
@@ -102,12 +103,13 @@ export default function Contact() {
                   required
                   value={form.name}
                   onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                  className="mt-4 w-full border-b-2 border-neutral-800 bg-transparent pb-3 text-base text-white outline-none focus:border-gold transition-all duration-300 focus:shadow-[0_1px_0_0_#C9A84C]"
+                  className="input-premium mt-3"
+                  placeholder="Your full name"
                 />
               </label>
 
               <label htmlFor="contact-email" className="block">
-                <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Email Address</span>
+                <span className="text-xs uppercase tracking-[0.28em] text-white-secondary">Email Address</span>
                 <input
                   id="contact-email"
                   name="email"
@@ -115,12 +117,13 @@ export default function Contact() {
                   required
                   value={form.email}
                   onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                  className="mt-4 w-full border-b-2 border-neutral-800 bg-transparent pb-3 text-base text-white outline-none focus:border-gold transition-all duration-300 focus:shadow-[0_1px_0_0_#C9A84C]"
+                  className="input-premium mt-3"
+                  placeholder="you@business.com"
                 />
               </label>
 
               <label htmlFor="contact-message" className="block">
-                <span className="text-xs uppercase tracking-[0.28em] text-gray-500">Message</span>
+                <span className="text-xs uppercase tracking-[0.28em] text-white-secondary">Message</span>
                 <textarea
                   id="contact-message"
                   name="message"
@@ -128,15 +131,21 @@ export default function Contact() {
                   rows={5}
                   value={form.message}
                   onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
-                  className="mt-4 w-full resize-none border-b-2 border-neutral-800 bg-transparent pb-3 text-base text-white outline-none focus:border-gold transition-all duration-300 focus:shadow-[0_1px_0_0_#C9A84C]"
+                  className="input-premium mt-3 min-h-[160px] resize-none"
+                  placeholder="Tell us what you want to build, improve, or automate."
                 />
               </label>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <div className="trust-pill">Response within 24 hours</div>
+              <div className="trust-pill">Growth-first recommendations</div>
             </div>
 
             <button
               type="submit"
               disabled={status === "loading"}
-              className="btn-primary mt-10 hover:shadow-[0_0_20px_rgba(201,168,76,0.2)] disabled:cursor-not-allowed disabled:opacity-70"
+              className="mt-10 inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#8B5CF6,#A855F7,#D4AF37)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(139,92,246,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(212,175,55,0.16)] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>

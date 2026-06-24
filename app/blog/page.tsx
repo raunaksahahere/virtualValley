@@ -4,6 +4,7 @@ import BlogCard from "@/components/BlogCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import blogPosts from "@/data/blog-posts.json";
+import { getMdxPosts } from "@/lib/mdx";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -15,6 +16,18 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const mdxPosts = getMdxPosts().map((post) => ({
+    title: post.title,
+    date: post.date,
+    excerpt: post.excerpt,
+    category: post.category,
+    readTime: post.readTime,
+    slug: post.slug,
+  }));
+  const allPosts = [...blogPosts, ...mdxPosts].sort((a, b) =>
+    a.date > b.date ? -1 : 1
+  );
+
   return (
     <main id="top" className="bg-black text-white">
       <Navbar />
@@ -31,7 +44,7 @@ export default function BlogPage() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {blogPosts.map((post) => (
+            {allPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </div>

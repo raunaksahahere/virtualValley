@@ -52,7 +52,8 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 md:py-28 overflow-hidden">
+    <section id="about" className="relative overflow-hidden py-20 md:py-28">
+      <div className="absolute inset-x-0 top-10 h-44 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08),transparent_70%)]" />
       <div className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,11 +62,11 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="text-sm uppercase tracking-[0.35em] text-gray-500 font-semibold">
+          <p className="text-sm uppercase tracking-[0.35em] text-white-secondary font-semibold">
             About us
           </p>
           <h2 className="mt-4 font-display text-3xl font-semibold md:text-5xl">
-            About <span className="text-gold-gradient">Virtual Valley</span>
+            About <span className="bg-luxury-gradient bg-clip-text text-transparent">Virtual Valley</span>
           </h2>
           <p className="section-copy mt-5">
             Virtual Valley is a premium digital agency built around speed, clarity, and outcomes that help businesses look more credible online and grow with confidence.
@@ -89,7 +90,7 @@ export default function About() {
                 <h3 className="font-display text-2xl font-semibold text-white">
                   {value.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-gray-300">{value.body}</p>
+                <p className="mt-4 text-sm leading-7 text-white-secondary">{value.body}</p>
               </motion.article>
             ))}
           </motion.div>
@@ -105,12 +106,12 @@ export default function About() {
               <motion.div
                 key={stat.label}
                 variants={cardVariants}
-                className="rounded-[2rem] p-6 glass-card-premium shadow-glow-gold-hover border-gold/15"
+                className="rounded-[2rem] border border-gold/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.32)] backdrop-blur-xl"
               >
                 <div className="font-display text-3xl font-semibold text-white">
                   {stat.value}
                 </div>
-                <div className="mt-2 text-sm text-gray-400 font-medium">{stat.label}</div>
+                <div className="mt-2 text-sm text-white-secondary font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -119,4 +120,3 @@ export default function About() {
     </section>
   );
 }
-

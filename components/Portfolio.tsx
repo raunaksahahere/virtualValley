@@ -30,7 +30,8 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 overflow-hidden">
+    <section id="portfolio" className="relative overflow-hidden py-20 md:py-28">
+      <div className="absolute inset-x-0 top-8 h-52 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.1),transparent_68%)]" />
       <div id="demos" className="relative -top-28" />
       <div className="section-shell">
         <motion.div
@@ -62,7 +63,7 @@ export default function Portfolio() {
             <motion.article
               key={project.id}
               variants={cardVariants}
-              className="overflow-hidden rounded-[2rem] glass-card-premium shadow-glow-white-hover"
+              className="overflow-hidden rounded-[2rem] glass-card-premium shadow-glow-white-hover group"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -70,7 +71,7 @@ export default function Portfolio() {
                   alt={`${project.name} project screenshot`}
                   fill
                   loading="lazy"
-                  className="object-cover transition-transform duration-700 ease-out hover:scale-105"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
@@ -79,18 +80,28 @@ export default function Portfolio() {
                     <h3 className="font-display text-2xl font-semibold text-white">
                       {project.name}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-400 font-medium">{project.type}</p>
+                    <p className="mt-2 text-sm text-white-secondary font-medium">{project.type}</p>
                   </div>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.25em] text-gray-300 font-medium">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.25em] text-white-secondary font-medium">
                     {project.serviceType}
                   </span>
                 </div>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-3">
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white-secondary">Industry</p>
+                    <p className="mt-2 text-sm font-medium text-white">{project.type}</p>
+                  </div>
+                  <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-3">
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-white-secondary">Focus</p>
+                    <p className="mt-2 text-sm font-medium capitalize text-white">{project.serviceType}</p>
+                  </div>
+                </div>
                 {typeof project.projectLink === "string" && project.projectLink ? (
-                  <Link href={project.projectLink} className="btn-secondary mt-6 hover:shadow-glow-white-hover">
+                  <Link href={project.projectLink} className="btn-secondary mt-6 hover:shadow-glow-purple-hover">
                     View Project
                   </Link>
                 ) : (
-                  <span className="mt-6 inline-flex rounded-full border border-white/10 px-5 py-3 text-sm text-gray-500">
+                  <span className="mt-6 inline-flex rounded-full border border-white/10 px-5 py-3 text-sm text-white-secondary">
                     Project available on request
                   </span>
                 )}

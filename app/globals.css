@@ -1,32 +1,30 @@
+/* Tailwind CSS Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-gold: #c9a84c;
-  --color-gold-light: #e5c76b;
-  --color-gold-dark: #a07830;
-  --color-gray-950: #0a0a0a;
-  --color-gray-900: #171717;
-  --color-gray-800: #262626;
-  --color-gray-700: #404040;
-  --color-gray-600: #525252;
-  --color-gray-500: #737373;
-  --color-gray-400: #a3a3a3;
-  --color-gray-300: #d4d4d4;
+  --color-primary-background: #050505;
+  --color-secondary-background: #101010;
+  --color-card-background: #151515;
+  --color-text: #FFFFFF;
+  --color-secondary-text: #A1A1AA;
+  --color-primary-accent-purple: #8B5CF6;
+  --color-secondary-purple: #A855F7;
+  --color-premium-gold: #D4AF37;
+  --color-light-gold: #F5D76E;
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
 body {
-  @apply bg-black text-white font-body antialiased;
-  overflow-x: hidden;
+  @apply text-white font-body antialiased;
+  background-color: #030108; /* Very deep purple/black instead of pure black */
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -42,7 +40,7 @@ textarea {
 }
 
 .text-gold-gradient {
-  @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-gold-light via-gold to-gold bg-clip-text text-transparent;
 }
 
 .border-gold-subtle {
@@ -54,26 +52,19 @@ textarea {
 }
 
 .section-shell {
-  @apply mx-auto w-full max-w-6xl px-4 md:px-6;
+  @apply mx-auto w-full max-w-7xl px-4 md:px-6;
 }
 
 .section-copy {
-  @apply max-w-2xl text-sm leading-7 text-gray-300 md:text-base;
+  @apply max-w-2xl text-base leading-8 text-white-secondary md:text-lg;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full border border-white bg-white px-6 py-3 text-sm font-semibold text-black hover:-translate-y-0.5 hover:bg-transparent hover:text-white;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-purple/50 bg-gradient-to-r from-purple to-purple-secondary px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(139,92,246,0.2)] hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(139,92,246,0.28)];
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:border-white/40 hover:bg-white/10;
-}
-
-.animated-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md hover:border-white/35 hover:bg-white/10;
 }
 
 .pulse-card {
@@ -106,14 +97,22 @@ textarea {
 
 /* Premium Glassmorphic Cards */
 .glass-card-premium {
-  @apply border border-white/10 bg-neutral-950/40 backdrop-blur-xl transition-all duration-500;
+  @apply border border-white/10 bg-black-card/40 backdrop-blur-xl transition-all duration-500;
   box-shadow: 
     inset 0 1px 1px rgba(255, 255, 255, 0.08),
-    0 4px 30px rgba(0, 0, 0, 0.5);
+    0 24px 80px rgba(0, 0, 0, 0.38);
 }
 
 .glass-card-premium:hover {
-  @apply border-white/20 bg-neutral-900/50 -translate-y-1;
+  @apply border-white/20 bg-black-secondary/50 -translate-y-1;
+}
+
+.trust-pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-white-secondary backdrop-blur-md;
+}
+
+.input-premium {
+  @apply w-full rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-4 text-base text-white outline-none backdrop-blur-md transition-all duration-300 placeholder:text-white-secondary/60 focus:border-purple/60 focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgba(139,92,246,0.08)];
 }
 
 /* Glow Shadow Utilities */
@@ -123,4 +122,25 @@ textarea {
 
 .shadow-glow-white-hover:hover {
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.shadow-glow-purple-hover:hover {
+  box-shadow: 0 0 34px rgba(139, 92, 246, 0.18);
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.seller-partner-text-glow {
+  background: linear-gradient(to right, #FFFFFF, #D4AF37, #8B5CF6, #FFFFFF);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: textGradient 4s linear infinite;
+  border: 1px solid transparent; /* Maintain spacing */
 }
