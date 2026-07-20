@@ -6,30 +6,51 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: '460.8px',
+      md: '552.96px',
+      lg: '737.28px',
+      xl: '921.6px',
+      '2xl': '1105.92px',
+    },
     extend: {
       colors: {
-        gold: {
-          DEFAULT: "#C9A84C",
-          light: "#E5C76B",
-          dark: "#A07830",
+        background: "rgb(var(--background) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-secondary": "rgb(var(--surface-secondary) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        heading: "rgb(var(--heading) / <alpha-value>)",
+        text: "rgb(var(--text) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        primary: {
+          DEFAULT: "rgb(var(--primary) / <alpha-value>)",
+          foreground: "rgb(var(--primary-foreground) / <alpha-value>)",
         },
+        secondary: "rgb(var(--secondary) / <alpha-value>)",
+        accent: {
+          cyan: "rgb(var(--accent-cyan) / <alpha-value>)",
+          green: "rgb(var(--accent-green) / <alpha-value>)",
+        },
+        border: "rgb(var(--border) / <alpha-value>)",
       },
       fontFamily: {
         body: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-space-grotesk)", "sans-serif"],
       },
       boxShadow: {
-        "glow-white": "0 0 40px rgba(255,255,255,0.12)",
-        "glow-gold": "0 0 24px rgba(201,168,76,0.2)",
-      },
-      backgroundImage: {
-        "grid-fade":
-          "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+        "premium-card": "0 16px 40px rgb(8 31 92 / 0.1)",
+        "premium-card-hover": "0 20px 48px rgb(8 31 92 / 0.12), 0 0 0 3px rgb(51 78 172 / 0.1)",
+        "premium-float": "0 24px 56px rgb(8 31 92 / 0.12)",
+        "glow-cyan": "0 0 24px rgb(51 78 172 / 0.2)",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-vertical": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
         },
         shimmer: {
           "0%": { opacity: "0.45" },
@@ -40,11 +61,20 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        "pulse-slow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         marquee: "marquee 24s linear infinite",
+        "marquee-vertical": "marquee-vertical 24s linear infinite",
         shimmer: "shimmer 3s ease-in-out infinite",
         float: "float 5s ease-in-out infinite",
+        "pulse-slow": "pulse-slow 4s ease-in-out infinite",
+      },
+      animationDelay: {
+        1000: "1000ms",
       },
     },
   },

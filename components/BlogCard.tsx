@@ -13,16 +13,16 @@ type BlogCardProps = {
 
 export default function BlogCard({ post }: BlogCardProps) {
   return (
-    <article className="flex h-full flex-col rounded-[1.75rem] border border-white/10 bg-neutral-950 p-6">
+    <article className="flex h-full flex-col rounded-[1.75rem] border border-border bg-neutral-950 p-6">
       <div className="flex items-center justify-between gap-4">
-        <span className="rounded-full border border-gold/30 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-gold">
+        <span className="rounded-full border border-[#334EAC]/30 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-accent-cyan">
           {post.category}
         </span>
         <span className="text-xs uppercase tracking-[0.2em] text-gray-500">
           {post.readTime}
         </span>
       </div>
-      <h3 className="mt-6 font-display text-2xl font-semibold text-white">
+      <h3 className="mt-6 font-display text-2xl font-semibold text-foreground">
         {post.title}
       </h3>
       <p className="mt-4 text-sm leading-7 text-gray-400">{post.excerpt}</p>
@@ -34,7 +34,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             year: "numeric",
           })}
         </span>
-        <Link href={`/blog/${post.slug}`} className="text-sm font-semibold text-white hover:text-gold">
+        <Link href={`/blog/${post.slug}`} className="text-sm font-semibold text-foreground hover:text-accent-cyan">
           Read More
         </Link>
       </div>

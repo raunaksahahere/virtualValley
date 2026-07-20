@@ -8,7 +8,6 @@ export function LocalBusinessJsonLd() {
     image: "https://thevirtualvalley.com/og-image.png",
     description:
       "Premium digital agency in Kolkata offering website development, social media management, and digital marketing across India.",
-    telephone: "+91-8017007352",
     email: "contact@thevirtualvalley.com",
     address: {
       "@type": "PostalAddress",
@@ -131,7 +130,7 @@ export function FAQJsonLd() {
         name: "How can I contact Virtual Valley?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can reach Virtual Valley at contact@thevirtualvalley.com, by phone at +91 8017007352, or via WhatsApp at the same number.",
+          text: "You can reach Virtual Valley at contact@thevirtualvalley.com.",
         },
       },
       {

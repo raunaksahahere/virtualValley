@@ -82,6 +82,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,13 +92,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <link rel="preload" as="image" href="/logo-poster.webp" />
         <link rel="llms" href="/llms.txt" type="text/plain" />
         <LocalBusinessJsonLd />
         <WebsiteJsonLd />
         <FAQJsonLd />
       </head>
-      <body className="bg-black text-white">
+      <body className="bg-background text-foreground overflow-x-hidden">
         {gtmId ? (
           <noscript>
             <iframe
@@ -108,6 +109,7 @@ export default function RootLayout({
           </noscript>
         ) : null}
         <GoogleAnalytics />
+        <AnimatedBackground />
         {children}
         <SpeedInsights />
       </body>

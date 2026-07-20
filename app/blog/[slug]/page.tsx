@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedPosts = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 2);
 
   return (
-    <main id="top" className="bg-black text-white">
+    <main id="top" className="bg-background text-foreground">
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "https://thevirtualvalley.com" },
@@ -75,19 +75,19 @@ export default async function BlogPostPage({ params }: PageProps) {
       <article className="min-h-screen px-4 py-24 md:px-6">
         <div className="mx-auto max-w-4xl">
           <div className="text-sm text-gray-500">
-            <Link href="/" className="hover:text-white">
+            <Link href="/" className="hover:text-foreground">
               Home
             </Link>{" "}
-            <span className="px-2 text-gold">/</span>
-            <Link href="/blog" className="hover:text-white">
+            <span className="px-2 text-accent-cyan">/</span>
+            <Link href="/blog" className="hover:text-foreground">
               Blog
             </Link>{" "}
-            <span className="px-2 text-gold">/</span>
-            <span className="text-white">{post.title}</span>
+            <span className="px-2 text-accent-cyan">/</span>
+            <span className="text-foreground">{post.title}</span>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-gold/30 px-3 py-1 text-xs uppercase tracking-[0.25em] text-gold">
+            <span className="rounded-full border border-lime/30 px-3 py-1 text-xs uppercase tracking-[0.25em] text-accent-cyan">
               {post.category}
             </span>
             <span className="text-sm text-gray-500">
@@ -106,7 +106,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-300">{post.excerpt}</p>
 
           <div
-            className="mt-12 max-w-none space-y-6 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-3xl [&_h2]:font-semibold [&_h2]:text-white [&_p]:leading-8 [&_p]:text-gray-300"
+            className="mt-12 max-w-none space-y-6 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-3xl [&_h2]:font-semibold [&_h2]:text-foreground [&_p]:leading-8 [&_p]:text-gray-300"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 

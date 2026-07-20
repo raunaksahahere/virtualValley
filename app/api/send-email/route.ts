@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     return errorResponse("Invalid request body", 400, corsHeaders);
   }
 
-  const { name, email, message, website } = body;
+  const { name, email, phone, business, service, budget, message, website } = body;
   const honeypot = typeof website === "string" ? website : undefined;
 
   if (isBotSubmission(honeypot)) {
@@ -68,7 +68,15 @@ export async function POST(request: NextRequest) {
     return errorResponse("Input exceeds maximum length.", 400, corsHeaders);
   }
 
-  const clean = sanitizeFormData({ name, email, message });
+  const clean = sanitizeFormData({ 
+    name, 
+    email, 
+    phone: typeof phone === "string" ? phone : "", 
+    business: typeof business === "string" ? business : "", 
+    service: typeof service === "string" ? service : "", 
+    budget: typeof budget === "string" ? budget : "", 
+    message 
+  });
 
   if (!hasEmailConfig()) {
     return errorResponse("Email service is not configured.", 500, corsHeaders);
@@ -80,6 +88,10 @@ export async function POST(request: NextRequest) {
       renderRows([
         { label: "Name", value: clean.name },
         { label: "Email", value: clean.email },
+        { label: "Phone", value: clean.phone },
+        { label: "Business", value: clean.business },
+        { label: "Service", value: clean.service },
+        { label: "Budget", value: clean.budget },
         { label: "Message", value: clean.message },
         {
           label: "Timestamp",

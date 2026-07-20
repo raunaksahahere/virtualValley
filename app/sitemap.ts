@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${siteUrl}/growth-partner`,
+      url: `${siteUrl}/seller-partner`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

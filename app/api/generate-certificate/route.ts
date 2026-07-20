@@ -267,7 +267,7 @@ async function makeQr(data: string) {
     margin: 1,
     scale: 3,
     color: {
-      dark: "#000000",
+      dark: "#FAF6EE",
       light: "#FFFFFF",
     },
   });
@@ -444,7 +444,15 @@ export async function POST(req: NextRequest) {
     );
 
     if (minScore > 0 && totalScore < minScore) {
-      await deleteLowScoreCertificate(resolvedRecord.cert_id);
+      try {
+        await deleteLowScoreCertificate(resolvedRecord.cert_id);
+      } catch (deleteError) {
+        console.error(
+          `Failed to delete low score certificate ${resolvedRecord.cert_id}:`,
+          deleteError,
+        );
+        return ok({ success: false, error: "Failed to delete low score certificate" });
+      }
 
       return ok({
         success: true,
@@ -491,7 +499,7 @@ export async function POST(req: NextRequest) {
             { label: "Total Score", value: `${totalScore} / 100` },
           ])}
           <div style="margin-top:24px;">
-            <a href="${verifyUrl}" style="display:inline-block;background:#C9A84C;color:#000000;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700;">Verify Certificate</a>
+            <a href="${verifyUrl}" style="display:inline-block;background:#C9A84C;color:#FAF6EE;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700;">Verify Certificate</a>
           </div>
           <p style="margin:18px 0 0;color:#BDBDBD;font-size:13px;">${verifyUrl}</p>
         `,
