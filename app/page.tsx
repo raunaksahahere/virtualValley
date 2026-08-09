@@ -8,9 +8,8 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
-const StorySection = dynamic(() => import("@/components/StorySection"), { ssr: false });
 const Services = dynamic(() => import("@/components/Services"), { ssr: false });
-
+const WebsitePlans = dynamic(() => import("@/components/WebsitePlans"), { ssr: false });
 const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"), { ssr: false });
 
 
@@ -24,14 +23,14 @@ export default function Home() {
     <main id="top" className="bg-background text-foreground">
       <Navbar />
       <Hero />
-      <StorySection />
+      <About />
 
       <Services />
+      <WebsitePlans />
       <TestimonialsSection />
 
       <GrowWithVirtualValley />
 
-      <About />
       <Contact />
       <Footer />
     </main>

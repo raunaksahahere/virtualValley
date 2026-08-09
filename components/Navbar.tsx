@@ -9,11 +9,10 @@ import { usePathname } from "next/navigation";
 import BookingModal from "./BookingModal";
 
 const navItems = [
-  { label: "Story", href: "#story", section: "story" },
-  { label: "Services", href: "#services", section: "services" },
-
-  { label: "Reviews", href: "#testimonials", section: "testimonials" },
   { label: "About", href: "#about", section: "about" },
+  { label: "Services", href: "#services", section: "services" },
+  { label: "Website Plans", href: "#website-plans", section: "website-plans" },
+  { label: "Reviews", href: "#testimonials", section: "testimonials" },
   { label: "Contact", href: "#contact", section: "contact" },
   { label: "Sales Intern", href: "/seller-partner", section: "seller-partner" },
 ];
@@ -29,7 +28,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ["story", "services", "testimonials", "about", "contact"];
+      const sections = ["about", "services", "website-plans", "testimonials", "contact"];
       const current = sections.findLast((section) => {
         const element = document.getElementById(section);
         if (!element) {

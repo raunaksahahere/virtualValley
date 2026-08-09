@@ -21,6 +21,37 @@ const stats = [
   { label: "Years Experience", value: 3, suffix: "+", icon: Palette, color: "text-heading", bg: "bg-primary/10" },
 ];
 
+const journeySteps = [
+  {
+    step: "01",
+    title: "Audit the opportunity",
+    copy: "We map the gaps that keep customers from finding and trusting your business.",
+  },
+  {
+    step: "02",
+    title: "Build the foundation",
+    copy: "We connect brand, website, local presence, and a conversion-ready experience.",
+  },
+  {
+    step: "03",
+    title: "Improve and scale",
+    copy: "We measure what works and keep the growth system moving.",
+  },
+];
+
+const ecosystem = [
+  "Website",
+  "AI Automation",
+  "Digital Branding",
+  "Ads Management",
+  "App Development",
+  "Local SEO",
+  "Social",
+  "CRM",
+  "Content",
+  "Analytics",
+];
+
 const timelineSteps = [
   "Website Development",
   "Online Presence",
@@ -264,6 +295,59 @@ export default function About() {
           </motion.div>
 
         </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* HOW WE GROW A BUSINESS */}
+        {/* ------------------------------------------------------------- */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="mt-24 rounded-[2.5rem] border border-border bg-surface-secondary p-8 shadow-[0_16px_36px_rgb(var(--primary)_/_0.08)] md:p-12"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent-cyan">
+            How we grow a business
+          </p>
+          <h3 className="mt-4 font-display text-3xl font-bold tracking-tight text-heading md:text-4xl">
+            We build. You dominate.
+          </h3>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-text">
+            Most businesses work hard and still grow slowly, because customers cannot find them or
+            cannot trust what they find. We turn that around with a strategy first, then a complete
+            digital foundation, and then continuous improvement.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {journeySteps.map((item) => (
+              <motion.div
+                key={item.step}
+                whileHover={{ y: -5 }}
+                className="rounded-2xl border border-border bg-background p-6"
+              >
+                <p className="text-sm font-bold text-accent-cyan">{item.step}</p>
+                <h4 className="mt-1 text-xl font-bold text-heading">{item.title}</h4>
+                <p className="mt-2 text-base leading-7 text-text">{item.copy}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 border-t border-primary/5 pt-8">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-muted">
+              The complete ecosystem
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {ecosystem.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-heading"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
