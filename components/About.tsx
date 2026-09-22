@@ -11,7 +11,9 @@ import {
   Zap, 
   Shield, 
   Rocket, 
-  ArrowRight
+  ArrowRight,
+  BarChart3,
+  Users
 } from "lucide-react";
 
 const stats = [
@@ -50,6 +52,48 @@ const ecosystem = [
   "CRM",
   "Content",
   "Analytics",
+];
+
+const partners = [
+  {
+    initials: "AS",
+    name: "Abhirup Sarkar",
+    role: "Chief Executive Officer",
+    tag: "CEO & Founder",
+    icon: Rocket,
+    color: "text-accent-cyan",
+    bg: "bg-accent-cyan/10",
+    border: "border-accent-cyan/30",
+    description:
+      "Abhirup founded Virtual Valley with a single conviction — that every business, regardless of size, deserves a world-class digital presence. He leads the company's vision, client strategy, and product direction, ensuring every engagement delivers measurable growth.",
+    expertise: ["Business Strategy", "Product Vision", "Client Relations", "Growth Architecture"],
+  },
+  {
+    initials: "RS",
+    name: "Raunak Saha",
+    role: "Chief Operating Officer",
+    tag: "COO & Co-Founder",
+    icon: Users,
+    color: "text-primary",
+    bg: "bg-primary/10",
+    border: "border-primary/20",
+    description:
+      "Raunak is the operational backbone of Virtual Valley. He designs and refines the internal workflows that allow the team to deliver premium results at speed. From project pipelines to partner onboarding, Raunak ensures every moving part runs in perfect sync.",
+    expertise: ["Operations", "Team Leadership", "Process Design", "Quality Assurance"],
+  },
+  {
+    initials: "SR",
+    name: "Shayan Roy",
+    role: "Chief Marketing Officer",
+    tag: "CMO & Co-Founder",
+    icon: BarChart3,
+    color: "text-accent-cyan",
+    bg: "bg-accent-cyan/10",
+    border: "border-accent-cyan/30",
+    description:
+      "Shayan drives the marketing engine that keeps Virtual Valley top-of-mind with the right audiences. He crafts brand narratives, leads demand generation, and builds the systems that turn attention into revenue — for both Virtual Valley and the clients it serves.",
+    expertise: ["Brand Strategy", "Digital Advertising", "Content", "Demand Generation"],
+  },
 ];
 
 const timelineSteps = [
@@ -346,6 +390,98 @@ export default function About() {
                 </span>
               ))}
             </div>
+          </div>
+        </motion.div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* PARTNERS / LEADERSHIP */}
+        {/* ------------------------------------------------------------- */}
+        <motion.div
+          id="partners"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7 }}
+          className="mt-24"
+        >
+          {/* Section Header */}
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-accent-cyan">
+              Leadership
+            </p>
+            <h3 className="font-display text-3xl font-bold tracking-tight text-heading md:text-4xl">
+              Meet the{" "}
+              <span className="text-accent-cyan-gradient">Partners</span>
+            </h3>
+            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text">
+              Three founders. One shared obsession — building brands that grow and businesses that last.
+            </p>
+          </div>
+
+          {/* Partner Tiles */}
+          <div className="grid gap-6 md:grid-cols-3">
+            {partners.map((partner, idx) => (
+              <motion.div
+                key={partner.initials}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                whileHover={{ y: -8, scale: 1.015 }}
+                className="group relative overflow-hidden rounded-[2rem] border border-border bg-surface p-8 shadow-[0_12px_40px_rgb(var(--primary)/_0.06)] transition-shadow duration-500 hover:border-accent-cyan/40 hover:shadow-[0_20px_60px_rgb(var(--primary)/_0.12)]"
+              >
+                {/* Corner Glow on Hover */}
+                <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-accent-cyan opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-[0.07]" />
+
+                {/* Top Row: Initials Badge + Icon */}
+                <div className="flex items-start justify-between mb-6">
+                  {/* Animated Initials Badge */}
+                  <motion.div
+                    animate={{ boxShadow: [
+                      "0 0 0px rgba(51,78,172,0)",
+                      "0 0 20px rgba(51,78,172,0.2)",
+                      "0 0 0px rgba(51,78,172,0)"
+                    ] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: idx * 0.8 }}
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl border-2 ${partner.border} ${partner.bg} font-display text-lg font-extrabold tracking-tight ${partner.color}`}
+                  >
+                    {partner.initials}
+                  </motion.div>
+
+                  {/* Role Icon */}
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${partner.bg}`}>
+                    <partner.icon className={`h-5 w-5 ${partner.color}`} />
+                  </div>
+                </div>
+
+                {/* Name + Role */}
+                <div className="mb-1">
+                  <span className={`inline-block rounded-full border px-3 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] ${partner.border} ${partner.color} bg-background/60 mb-3`}>
+                    {partner.tag}
+                  </span>
+                  <h4 className="font-display text-xl font-bold text-heading">{partner.name}</h4>
+                  <p className="mt-0.5 text-sm font-semibold text-muted">{partner.role}</p>
+                </div>
+
+                {/* Divider */}
+                <div className="my-5 h-px bg-gradient-to-r from-border via-accent-cyan/20 to-transparent" />
+
+                {/* Description */}
+                <p className="text-sm leading-relaxed text-text">{partner.description}</p>
+
+                {/* Expertise Tags */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {partner.expertise.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold text-heading"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
